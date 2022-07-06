@@ -1,15 +1,25 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Scanner;
 
 public abstract class CardGame {
     private static List<Card> deckOfCards = new ArrayList<>();
 
+    private final Scanner scanner;
+
     static {
         initialiseDeckOfCards();
     }
+
+    protected CardGame() {
+        this.scanner = new Scanner(System.in);
+    }
+
+    abstract public void run();
 
     public static void initialiseDeckOfCards(){
         String suit = "none";
@@ -17,17 +27,13 @@ public abstract class CardGame {
 
         for (int i = 1; i <= 4; i++) {
             if (i == 1) {
-                // Hearts
-                suit = "\u2665";
+                suit = "\u2665";    // Hearts
             } else if (i == 2) {
-                // Spades
-                suit = "\u2660";
+                suit = "\u2660";    // Spades
             } else if (i == 3) {
-                // Diamonds
-                suit = "\u25C6";
+                suit = "\u25C6";    // Diamonds
             } else if (i == 4) {
-                // Clubs
-                suit = "\u2663";
+                suit = "\u2663";    // Clubs
             }
             for (int j = 2; j <= 14; j++) {
                 if (j <= 10) {
@@ -61,6 +67,10 @@ public abstract class CardGame {
         return deckOfCards.get(deckOfCards.size() - 1);
     }
 
+    public static void removeCard(){
+        deckOfCards.remove(deckOfCards.size() - 1);
+    }
+
     public static void sortDeckInNumberOrder(){
         deckOfCards = deckOfCards.stream()
                 .sorted()
@@ -68,8 +78,10 @@ public abstract class CardGame {
     }
 
     public static void sortDeckIntoSuits(){
-        deckOfCards.clear();
-        initialiseDeckOfCards();
+        deckOfCards = deckOfCards.stream()
+                .sorted()
+                .sorted(Comparator.comparing(Card::getSuit))
+                .collect(Collectors.toList());
     }
 
     public static void shuffleDeck(){
@@ -77,12 +89,24 @@ public abstract class CardGame {
 
         while (deckOfCards.size() != 0) {
             int randomCard = (int) (Math.random() * deckOfCards.size());
-            System.out.println(randomCard);
             shuffledDeck.add(deckOfCards.get(randomCard));
             deckOfCards.remove(randomCard);
         }
-
-
         deckOfCards = shuffledDeck;
     }
+
+    public static void printMessage(String message){
+        System.out.println(message);
+    }
+
+    public String userInput() {
+        String userInput = "";
+        String input = scanner.nextLine();
+
+        if (input.length() != 0) {
+            userInput = input;
+        }
+        return userInput;
+    }
+
 }

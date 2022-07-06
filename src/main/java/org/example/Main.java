@@ -8,10 +8,13 @@ public class Main {
 //        CardGame.sortDeckInNumberOrder();
 //        CardGame.printDeckOfCards();
 
-        CardGame.shuffleDeck();
-        CardGame.shuffleDeck();
-        CardGame.printDeckOfCards();
+//        CardGame.shuffleDeck();
+//        CardGame.shuffleDeck();
+//        CardGame.printDeckOfCards();
 //        CardGame.sortDeckIntoSuits();
 //        CardGame.printDeckOfCards();
+
+        Snap snapGame = new Snap();
+        snapGame.run();
     }
 }
