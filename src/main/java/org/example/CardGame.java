@@ -8,6 +8,10 @@ public abstract class CardGame {
     private static List<Card> deckOfCards = new ArrayList<>();
 
     static {
+        initialiseDeckOfCards();
+    }
+
+    public static void initialiseDeckOfCards(){
         String suit = "none";
         String symbol = "none";
 
@@ -63,6 +67,22 @@ public abstract class CardGame {
                 .collect(Collectors.toList());
     }
 
+    public static void sortDeckIntoSuits(){
+        deckOfCards.clear();
+        initialiseDeckOfCards();
+    }
+
+    public static void shuffleDeck(){
+        List shuffledDeck = new ArrayList<>();
+
+        while (deckOfCards.size() != 0) {
+            int randomCard = (int) (Math.random() * deckOfCards.size());
+            System.out.println(randomCard);
+            shuffledDeck.add(deckOfCards.get(randomCard));
+            deckOfCards.remove(randomCard);
+        }
 
 
+        deckOfCards = shuffledDeck;
+    }
 }

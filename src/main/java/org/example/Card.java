@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Comparator;
 
-public class Card implements Comparable<Card>, Comparator<Card> {
+public class Card implements Comparable<Card> {
 
     private String suit;
     private String symbol;
@@ -36,9 +36,9 @@ public class Card implements Comparable<Card>, Comparator<Card> {
         return value - card.getValue();
     }
 
-    @Override
-    public int compare(Card c1, Card c2) {
-        return c1.getSuit().compareTo(c2.getSuit());
-    }
+//    @Override      <----sortDeckInNumberOrder()
+//    public int compare(Card c1, Card c2) {
+//        return c1.getSuit().compareTo(c2.getSuit());
+//    }
 
 }
