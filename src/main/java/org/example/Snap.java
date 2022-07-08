@@ -31,8 +31,6 @@ public class Snap extends CardGame{
                     printMessage("No match!");
                 }
             }
-
         }
-
     }
 }
