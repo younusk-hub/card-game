@@ -67,6 +67,10 @@ public abstract class CardGame {
         return deckOfCards.get(deckOfCards.size() - 1);
     }
 
+    public static void addCard(Card card){
+        deckOfCards.add(card);
+    }
+
     public static void removeCard(){
         deckOfCards.remove(deckOfCards.size() - 1);
     }

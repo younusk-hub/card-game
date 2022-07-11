@@ -36,9 +36,4 @@ public class Card implements Comparable<Card> {
         return value - card.getValue();
     }
 
-//    @Override      <----sortDeckInNumberOrder()
-//    public int compare(Card c1, Card c2) {
-//        return c1.getSuit().compareTo(c2.getSuit());
-//    }
-
 }
