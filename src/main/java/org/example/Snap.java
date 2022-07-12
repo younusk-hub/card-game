@@ -12,11 +12,11 @@ public class Snap extends CardGame{
         printMessage("Welcome to snap!");
         printMessage("Player 1's name:");
         String playerOneName = userInput();
-        Player playerOne = new Player(playerOneName, 1);
+        Player playerOne = new Player(playerOneName);
 
         printMessage("Player 2's name:");
         String playerTwoName = userInput();
-        Player playerTwo = new Player(playerTwoName, 2);
+        Player playerTwo = new Player(playerTwoName);
 
         printMessage("Let's play! Ready?");
         userInput();

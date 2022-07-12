@@ -7,19 +7,9 @@ public class Player {
 
     private int player;
 
-    public Player(String name, int player) {
+    public Player(String name) {
         this.name = name;
         this.score = 0;
-        this.player = player;
-
-    }
-
-    public int getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(int player) {
-        this.player = player;
     }
 
     public String getName() {
@@ -49,7 +39,4 @@ public class Player {
     public String displayScore(){
         return getName() + "'s score: " + getScore();
     }
-
-
-
 }
