@@ -40,7 +40,7 @@ public class Snap extends CardGame{
                 printMessage(visibleDeck.get(visibleDeck.size() - 1).toString());
                 String userInput = userInput();
 
-                if (userInput.length() == 1 && visibleDeck.size() > 1 && visibleDeck.get(visibleDeck.size() - 1).getValue() == visibleDeck.get(visibleDeck.size() - 2).getValue()) {
+                if (userInput.length() >= 1 && visibleDeck.size() > 1 && visibleDeck.get(visibleDeck.size() - 1).getValue() == visibleDeck.get(visibleDeck.size() - 2).getValue()) {
                     if (count % 2 == 0) {
                         printMessage(playerOne.getWin());
                         playerOne.incrementScore();
@@ -50,7 +50,7 @@ public class Snap extends CardGame{
                     }
                     isActive = false;
 
-                } else if (userInput.length() == 1 ) {
+                } else if (userInput.length() >= 1) {
                     printMessage("No match!");
                 }
                 count++;
@@ -67,6 +67,8 @@ public class Snap extends CardGame{
                     printMessage("Let's play! Ready?");
                     userInput();
                     shuffleDeck();
+                } else {
+                    printMessage("Bye!");
                 }
             }
         }

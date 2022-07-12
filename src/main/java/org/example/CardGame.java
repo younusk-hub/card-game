@@ -1,12 +1,10 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
-import java.util.Scanner;
 
 public abstract class CardGame {
+
     private static List<Card> deckOfCards = new ArrayList<>();
 
     private final Scanner scanner;
@@ -76,9 +74,7 @@ public abstract class CardGame {
     }
 
     public static void sortDeckInNumberOrder(){
-        deckOfCards = deckOfCards.stream()
-                .sorted()
-                .collect(Collectors.toList());
+        Collections.sort(deckOfCards);
     }
 
     public static void sortDeckIntoSuits(){
@@ -89,14 +85,7 @@ public abstract class CardGame {
     }
 
     public static void shuffleDeck(){
-        List shuffledDeck = new ArrayList<>();
-
-        while (deckOfCards.size() != 0) {
-            int randomCard = (int) (Math.random() * deckOfCards.size());
-            shuffledDeck.add(deckOfCards.get(randomCard));
-            deckOfCards.remove(randomCard);
-        }
-        deckOfCards = shuffledDeck;
+        Collections.shuffle(deckOfCards);
     }
 
     public static void printMessage(String message){
@@ -106,11 +95,7 @@ public abstract class CardGame {
     public String userInput() {
         String userInput = "";
         String input = scanner.nextLine();
-
-        if (input.length() != 0) {
-            userInput = input;
-        }
+        userInput = input;
         return userInput;
     }
-
 }

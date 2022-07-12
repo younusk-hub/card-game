@@ -35,5 +35,4 @@ public class Card implements Comparable<Card> {
     public int compareTo(Card card) {
         return value - card.getValue();
     }
-
 }
